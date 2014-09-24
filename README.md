@@ -1,2 +1,2 @@
-CreativeCoding
-==============
+Creative Coding Projects
+========================
