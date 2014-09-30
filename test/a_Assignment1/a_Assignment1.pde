@@ -16,6 +16,11 @@ float posX = width/2;
 float posY = height/2;
 
 
+float rotateM = 0;
+float rotateR;
+float rotateL;
+
+float lineAcc;
 
 /******************************************
     SETUP
