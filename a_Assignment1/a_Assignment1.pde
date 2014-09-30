@@ -69,7 +69,7 @@ void makeCircles(float red, float green, float blue, float posX, float posY) {
   alpha = 0;          //reset alpha after exiting loop
   radius = 300;       //reset radius after exiting loop
   
-  println("*** END LOOP **);
+  println("*** END LOOP ***");
 }
 
 
