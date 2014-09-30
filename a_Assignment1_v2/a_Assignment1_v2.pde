@@ -7,7 +7,7 @@
 /******************************************
     VARIABLES
 ******************************************/
-
+boolean autoMode = false;
 
 
 /******************************************
@@ -28,7 +28,9 @@ void setup (){
 ******************************************/
 
 void draw() {
-  new myDrop(random(0,255),random(0,255),255, random(0, width), random(0,height));
+  if (autoMode == true) {
+    new myDrop(random(0,255),random(0,255),255, random(0, width), random(0,height));
+  }
 }
 
 
@@ -42,5 +44,20 @@ void mousePressed() {
 }
 
 void keyPressed() {
-  background(0);
+  // ** Clear ** //
+  if (key == 'a') {
+    background(0);
+  }
+  
+  // ** Pause ** //
+  if (key == 's') {
+    autoMode = true;
+    //noLoop();
+  }
+  
+  // ** Play ** //
+  if (key == 'd') {
+    autoMode = false;
+    //loop();
+  }
 }
