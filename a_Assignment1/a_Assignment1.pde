@@ -8,9 +8,9 @@
     VARIABLES
 ******************************************/
 
-float numCircles = 30;
-float radius = 300;
-float alpha;
+int numCircles = 30;
+int radius = 300;
+int alpha = 0;
 float red = 255, green = 255, blue = 255;
 float posX = width/2;
 float posY = height/2;
@@ -59,10 +59,10 @@ void makeCircles(float red, float green, float blue, float posX, float posY) {
     /*********************/
     
     pushMatrix();
+    stroke(red, green, blue, alpha);      //set the sroke color
     ellipse(posX, posY, radius, radius);  //draw an ellipse
     popMatrix();
     
-    stroke(red, green, blue, alpha);      //set the sroke color
     radius -= radius/numCircles;          //decrease the radius for the next ellipse
     alpha += 100/numCircles;              //decrease the alpha value by 1 step
   }
