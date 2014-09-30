@@ -45,18 +45,31 @@ void draw() {
 ******************************************/
 
 void makeCircles(float red, float green, float blue, float posX, float posY) {
+  println("*** START LOOP ***");
+  
   for (int i=0; i<numCircles*2; i++) {    //run the loop for twice as many circles as i've specified
-    alpha += 100/numCircles;              //decrease the alpha value by 1 step
-    stroke(red, green, blue, alpha);      //set the sroke color
-    println(alpha);
+    
+    /*** Get some stats ***/
+       print(i); print("   -   ");
+       print("Radius: ");
+       print(radius);
+       print("  -  ");
+       print("Alpha: ");
+       println(alpha);
+    /*********************/
     
     pushMatrix();
     ellipse(posX, posY, radius, radius);  //draw an ellipse
-    radius -= radius/numCircles;          //decrease the radius for the next ellipse
     popMatrix();
+    
+    stroke(red, green, blue, alpha);      //set the sroke color
+    radius -= radius/numCircles;          //decrease the radius for the next ellipse
+    alpha += 100/numCircles;              //decrease the alpha value by 1 step
   }
   alpha = 0;          //reset alpha after exiting loop
   radius = 300;       //reset radius after exiting loop
+  
+  println("*** END LOOP **);
 }
 
 
