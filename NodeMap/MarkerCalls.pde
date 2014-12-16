@@ -17,9 +17,11 @@ void createMarker() {
   Location markerLocation = new Location(getLatitude(), getLongitude());
   SimplePointMarker marker = new SimplePointMarker(markerLocation);
   
-  markerColor = getMarkerColor(); 
+  //markerColor = getMarkerColor(); 
+  markerColor = unhex(getColor(testID));
   
   ScreenPosition markerPos = marker.getScreenPosition(map);
+  
   fill(markerColor);
   ellipse(markerPos.x, markerPos.y, metricRadius, metricRadius);
 
@@ -31,6 +33,9 @@ void createMarker() {
 void printLegend(String _testName, String _nodeCity, int _testTotalLoadTime, color _markerColor) {
   
   int spacing = int(width * 0.0099);
+  
+  
+  colorMode(RGB);
   
   fill(labelColor);
   text("Test", spacing, legendY);
@@ -46,6 +51,9 @@ void printLegend(String _testName, String _nodeCity, int _testTotalLoadTime, col
   text("Webpage Response (ms)", int(width * 0.811), legendY);
   fill(textColor);
   text(_testTotalLoadTime, textWidth("Webpage Response (ms)") + int(width * 0.811) + spacing, legendY);
+  
+  
+  colorMode(HSB, 360, 100, 100);
   
   fill(_markerColor);
   ellipse(textWidth("Test") + spacing*2, legendY - 6, 5, 5);

@@ -12,6 +12,7 @@ import de.fhpotsdam.unfolding.marker.*;
 import de.fhpotsdam.unfolding.marker.MarkerManager;
 import de.fhpotsdam.unfolding.providers.MBTilesMapProvider;
 import org.geonames.*;  
+import java.util.Map;
 
 
 
@@ -24,8 +25,8 @@ ToponymSearchCriteria searchCriteria = new ToponymSearchCriteria();
 PFont sansSerif;
 int legendY;
 
-boolean fullScreen = false;                             // ** Uncomment for Window frame
-//boolean fullScreen = true;                            // ** Uncomment for Full Screen
+//boolean fullScreen = false;                             // ** Uncomment for Window frame
+boolean fullScreen = true;                            // ** Uncomment for Full Screen
 
 
 
@@ -33,8 +34,10 @@ boolean fullScreen = false;                             // ** Uncomment for Wind
 
 void setup() {
   
-  size(1024, 800, JAVA2D);                             // ** Uncomment for Window frame
-  //size(displayWidth, displayHeight, JAVA2D);         // ** Uncomment for Full Screen
+  initSettings();
+  
+  //size(1024, 800, JAVA2D);                             // ** Uncomment for Window frame
+  size(displayWidth, displayHeight, JAVA2D);         // ** Uncomment for Full Screen
  
   frame.setBackground(new java.awt.Color(0, 20, 33)); 
   frameRate(60);
@@ -59,6 +62,8 @@ void setup() {
   textSize(11);
   
   ellipseMode(CORNER);
+  
+  colorMode(HSB, 360, 100, 100);
  
 }
 
@@ -67,9 +72,11 @@ void draw() {
   
   map.draw();
  
+  colorMode(RGB);
   fill(0, 0, 0, 87);
   rect(0, legendY-15, width, 21);
-
+  colorMode(HSB, 360, 100, 100);
+  
   createMarker();
   
 }
